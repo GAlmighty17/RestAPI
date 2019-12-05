@@ -1,0 +1,1 @@
+deploy_server: {id: "github", url: "scm:git:https://github.com/opoo.github.io.git"}
