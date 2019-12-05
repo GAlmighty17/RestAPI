@@ -12,9 +12,9 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/hibernatedb</property>
+        <property name="hibernate.connection.username">PIaIraR1Hh</property>
+        <property name="hibernate.connection.password">8MHg8i5mVN</property>
+        <property name="hibernate.connection.url">jdbc:mysql://remotemysql.com/PIaIraR1Hh</property>
         <property name="show_sql">true</property>
         <property name="hibernate.connection.pool_size">2</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
