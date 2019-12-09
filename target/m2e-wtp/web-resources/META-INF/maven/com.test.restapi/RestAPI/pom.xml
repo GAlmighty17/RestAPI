@@ -22,6 +22,11 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+        <plugin>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>1.9.9</version>
+        </plugin>
         </plugins>
 		<extensions>
     		<extension>
@@ -91,7 +96,7 @@
         <dependency>
         	<groupId>com.mchange</groupId>
         	<artifactId>c3p0</artifactId>
-        	<version>0.9.5.2</version>
+        	<version>0.9.5.4</version>
         </dependency>
     </dependencies>
     <properties>
