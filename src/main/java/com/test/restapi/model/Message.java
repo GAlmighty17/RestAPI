@@ -16,7 +16,7 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private Integer id;
 	private String message;
 	private Date created;
 	private String author;
@@ -26,7 +26,7 @@ public class Message {
 		created = new Date();
 	}
 	
-	public Message(Long id, String message, String author) {
+	public Message(Integer id, String message, String author) {
 		super();
 		this.id = id;
 		this.message = message;
@@ -34,10 +34,10 @@ public class Message {
 		this.author = author;
 	}
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getMessage() {

@@ -16,7 +16,7 @@ public class MessageResource {
 	
 	private MessagesServices messageServices = new MessagesServices();
 	
-	@GET
+	@GET 
 	public List<Message> getAllMessage(){
 		System.out.print("reached");
 		return messageServices.getAllMessages();

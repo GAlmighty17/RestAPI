@@ -17,7 +17,7 @@ import com.test.restapi.model.Message;
 
 public class MessagesServices {
 	
-	private Map<Long, Message> messages = DatabaseClass.getMessages();
+	private Map<Integer, Message> messages = DatabaseClass.getMessages();
 	
 	private SessionFactory sessionFactory = null;
 	private Session session = null;
@@ -28,11 +28,11 @@ public class MessagesServices {
 //		session.beginTransaction();
 		System.out.print("done");
 	}
-	
+	 
 	public List<Message> getAllMessages(){
 		session = sessionFactory.openSession();
 		session.getTransaction();
-		Query query = session.createQuery("from Message");
+		Query<Message> query = session.createQuery("from Message");
 		ArrayList<Message> messages = (ArrayList<Message>) query.list();
 		session.close();
 		return messages;
