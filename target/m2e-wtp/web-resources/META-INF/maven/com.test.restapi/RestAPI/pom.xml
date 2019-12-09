@@ -97,11 +97,11 @@
         	<groupId>org.hibernate</groupId>
         	<artifactId>hibernate-core</artifactId>
         </dependency>
-        <dependency>
+        <!-- dependency>
         	<groupId>com.mchange</groupId>
         	<artifactId>c3p0</artifactId>
         	<version>0.9.5.4</version>
-        </dependency>
+        </dependency -->
     </dependencies>
     <properties>
         <jersey.version>2.25</jersey.version>
