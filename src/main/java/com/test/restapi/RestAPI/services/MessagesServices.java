@@ -30,32 +30,47 @@ public class MessagesServices {
 	}
 	 
 	public List<Message> getAllMessages(){
-		session = sessionFactory.openSession();
-		session.getTransaction();
-		Query<Message> query = session.createQuery("from Message");
-		ArrayList<Message> messages = (ArrayList<Message>) query.list();
-		session.close();
-		return messages;
+		try {
+			session = sessionFactory.openSession();
+			session.getTransaction();
+			Query<Message> query = session.createQuery("from Message");
+			ArrayList<Message> messages = (ArrayList<Message>) query.list();
+			session.close();
+			return messages;
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		} finally {
+			session.close();
+		}
 	}
 
-	public Message getMessage(Long id){
-		session = sessionFactory.openSession();
-		session.getTransaction();
-		Message message = session.get(Message.class, id);
-		session.close();
-		return message;
-//		return messages.get(id);
+	public Message getMessage(Integer id){
+		try {
+			session = sessionFactory.openSession();
+			session.getTransaction();
+			Message message = session.get(Message.class, id);
+			session.close();
+			return message;
+//			return messages.get(id);
+		} finally {
+			session.close();
+		}
 	}
 	
 	public Message addMessage(Message message){
-//		messages.put(message.getId(), message);
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(message);
-		session.getTransaction().commit();
-		session.close();
-//		return messages.get(message.getId());
-		return message;
+		try {
+			//		messages.put(message.getId(), message);
+			session = sessionFactory.openSession();
+			session.beginTransaction();
+			session.save(message);
+			session.getTransaction().commit();
+			session.close();
+			//		return messages.get(message.getId());
+			return message;
+		} finally {
+			session.close();
+		}
 	}
 	
 	public Message updateMessage(Message message){
@@ -69,15 +84,16 @@ public class MessagesServices {
 		
 		Serializable delId = new Long(id);
 		
-		session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		
-		Object persistentInstance = session.load(Message.class, delId);
-		
-		session.delete(persistentInstance);
-		tx.commit();
-		session.close();
-		
-		return id;
+		try {
+			session = sessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			Object persistentInstance = session.load(Message.class, delId);
+			session.delete(persistentInstance);
+			tx.commit();
+			session.close();
+			return id;
+		} finally {
+			session.close();
+		}
 	}
 }
